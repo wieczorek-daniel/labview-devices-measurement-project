@@ -1,0 +1,371 @@
+﻿<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+  </script>
+  <title>Dokumentacja</title>
+</head>
+
+<body>
+  <div id="accordion" style="text-align: justify;">
+    <div class="card">
+      <div class="card-header" id="headingOne">
+        <h5 class="mb-0">
+          <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
+            aria-controls="collapseOne">
+            Wprowadzenie
+          </button>
+        </h5>
+      </div>
+      <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+        <div class="card-body">
+          <center style="font-size:20px;"><b>Systemy akwizycji i przetwarzania danych (projekt) - zadanie nr 7</b></center>
+          <div id="accordion3" style="text-align: justify; margin: 10px;">
+              <div class="card">
+                <div class="card-header" id="headingEight-One">
+                  <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseEight-One"
+                      aria-expanded="false" aria-controls="collapseEight-One">
+                      Treść zadania
+                    </button>
+                  </h5>
+                </div>
+                <div id="collapseEight-One" class="collapse" aria-labelledby="headingEight-One" data-parent="#accordion3">
+                  <div class="card-body">
+                      Zadanie 7 (stanowisko S-3):</br>
+                      Zaprojektować aplikację realizującą pomiar charakterystyki częstotliwościowej czwórnika (transmitancja czwórnika w funkcji częstotliwości).</br>
+                  </br>
+                      1. Założenia:</br>
+                          <ul>
+                            <li>deklaracja zakresu częstotliwościowego, amplitudy sygnału testowego oraz gęstości i rozłożenia (LIN/LOG) punktów pomiarowych,</li>
+                            <li>dla każdego punktu charakterystyki wykonuje się pomiar transmitancji badanego układu wyrażonej w dB. Do określenia transmitancji wykorzystać system obliczeniowy multimetru zakładając odniesienie napięcia wyjściowego do założonego napięcia wejściowego,</li>
+                            <li>akwizycja danych pomiarowych w tablicy,</li>
+                            <li>bieżąca prezentacja uzyskiwanych danych,</li>
+                            <li>prezentacja graficzna wyników na wykresie XY (stale aktywna możliwość modyfikowania rodzaju skal X i Y: Log/Lin),</li>
+                            <li>możliwość zapisu wyników w pliku (format przyjmowany przez arkusz kalkulacyjny),</li>
+                           <li>możliwość przerwania pomiarów lub aplikacji w dowolnym momencie czasowym.</li>
+                        </ul>
+                      2. Układ pomiarowy i realizacja pomiarów:<br>
+                          <div>
+                          <center><img src="http://www.kmeif.pwr.wroc.pl/elektron/interfejsy/projekt2/zad7.gif"> </img></center></br>
+                          </div>
+                          <ul>
+                          <li>generator HP33120 jest obciążony 50ohm; sygnał doprowadzony do wejścia badanego czwórnika,</li>
+                          <li>multimetr HP34401 mierzy napięcie wyjściowe czwórnika wyrażone w dB w stosunku do założonego napięcia wejściowego,</li>
+                          <li>napięcie wejściowe określone z nastawy amplitudy sygnału generatora (stałe w całym paśmie częstotliwościowym - założenie),</li>
+                          </li>pomiar napięcia wyjściowego w dB w odniesieniu do wejścia wymaga wykorzystania funkcji obliczeniowej DB multimetru. Wynik jest liczony według zależności:
+                          </ul>
+                          <b><center>dB = reading in dBm - relative in dBm</center></b></br>
+                          wartość odniesienia należy obliczyć z zależności:</br>
+                          <b><center>relative[dBm] = 10log<sub>10</sub>(U<sub>sk_we</sub><sup>2</sup>/50&#8486/1mW)</center></b></br>
+                          i wprowadzić do multimetru odpowiednim poleceniem.</br>
+                          Pomiary można realizować poleceniem READ? ( nie można stosować polecenia MEAS?).</br>
+                        </br>
+                      3. Zestaw urządzeń (stanowisko S-3):</br>
+                        <ul>
+                          <li>programowany generator funkcji HP33120A (nazwa symboliczna "HP_gen"),</li>
+                          <li>programowany multimetr HP34401A (nazwa symboliczna "HP_dvm2").</li>
+                        </ul>
+                      </br>
+                  </div>
+                </div>
+              </div>
+          </div>
+          Projekt jest aplikacją realizującą pomiar charakterystyki częstotliwościowej czwórnika (transmitancja czwórnika w funkcji częstotliwości). Zbudowany jest w oparciu o eventową maszynę stanów i na podstawie danych wejściowych użytownika takich jak:
+        <center><div class="container h-100 d-flex justify-content-center text-center" style="margin: 10px 0px;">
+            <ul class="list-group">
+              <li class="list-group-item  list-group-item-success">Częstotliwość początkowa (wartość domyślna: 10)</li>
+              <li class="list-group-item  list-group-item-success">Częstotliwość końcowa (wartość domyślna: 10000)</li>
+              <li class="list-group-item  list-group-item-success">Amplituda (wartość domyślna: 5)</li>
+              <li class="list-group-item  list-group-item-success">Gęstość - ilość punktów pomiarowych (wartość domyślna: 20)</li>
+              <li class="list-group-item  list-group-item-success">Rodzaj rozłożenia (wartość domyślna: false - rozkład LIN)</li>
+            </ul>
+          </div></center>
+          otrzymujemy dane wejściowe w zależności od akcji użytkownika (naciśnięcie jednego z przycisków):
+          <div id="accordion2" style="text-align: justify; margin-top: 10px;">
+            <div class="card">
+              <div class="card-header" id="headingOne-One">
+                <h5 class="mb-0">
+                  <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseOne-One"
+                    aria-expanded="false" aria-controls="collapseOne-One">
+                    Przycisk Pomiar
+                  </button>
+                </h5>
+              </div>
+              <div id="collapseOne-One" class="collapse" aria-labelledby="headingOne-One" data-parent="#accordion2">
+                <div class="card-body">
+                  Użytkownik jako dane wyjściowe otrzymuje tabele danych pomiarowych składającej się z kolumny nr 1 zawierającej częstotliwość wyrażoną w Hz oraz kolumny nr 2 zawierającej transmitancje czwórnika wyrażoną w dB. Tabela jest aktualizowana o nowy rekord z każdym kolejnym pomiarem.
+                </div>
+              </div>
+            </div>
+            <div id="accordion2" style="text-align: justify;">
+              <div class="card">
+                <div class="card-header" id="headingOne-Two">
+                  <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseOne-Two"
+                      aria-expanded="false" aria-controls="collapseOne-Two">
+                      Przycisk Przerwij
+                    </button>
+                  </h5>
+                </div>
+                <div id="collapseOne-Two" class="collapse" aria-labelledby="headingOne-Two" data-parent="#accordion2">
+                  <div class="card-body">
+                    Użytkownik wysyła żądanie, które przerywa wykonywanie procesu pomiarowego kończąc tym samym akwizycję danych do tabeli pomiarowej.
+                  </div>
+                </div>
+              </div>
+              <div id="accordion2" style="text-align: justify;">
+                <div class="card">
+                  <div class="card-header" id="headingOne-Three">
+                    <h5 class="mb-0">
+                      <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseOne-Three"
+                        aria-expanded="false" aria-controls="collapseOne-Three">
+                        Przycisk Zapisz
+                      </button>
+                    </h5>
+                  </div>
+                  <div id="collapseOne-Three" class="collapse" aria-labelledby="headingOne-Three"
+                    data-parent="#accordion2">
+                    <div class="card-body">
+                      <div class="card-body" >
+                        Użytkownik wysyła żądanie, które powoduje zapis danych z tabeli pomiarowej wraz z nagłówkami opisującymi konkretne kolumny do pliku o rozszerzeniu .xlsx, czyli formatu standardowego dla programu Microsoft Excel.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div id="accordion2" style="text-align: justify;">
+                <div class="card">
+                  <div class="card-header" id="headingOne-Four">
+                    <h5 class="mb-0">
+                      <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseOne-Four"
+                        aria-expanded="false" aria-controls="collapseOne-Four">
+                        Przycisk Narysuj
+                      </button>
+                    </h5>
+                  </div>
+                  <div id="collapseOne-Four" class="collapse" aria-labelledby="headingOne-Four"
+                    data-parent="#accordion2">
+                    <div class="card-body">
+                      Użytkownik otrzymuje wykres typu XY Graph reprezentujący charakterystykę częstotliwościową czwórnika (transmitancja czwórnika w funkcji częstotliwości).
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div id="accordion2" style="text-align: justify; margin-bottom: 10px;">
+                <div class="card">
+                  <div class="card-header" id="headingOne-Five">
+                    <h5 class="mb-0">
+                      <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseOne-Five"
+                        aria-expanded="false" aria-controls="collapseOne-Four">
+                        Przycisk Zatrzymaj
+                      </button>
+                    </h5>
+                  </div>
+                  <div id="collapseOne-Five" class="collapse" aria-labelledby="headingOne-Five"
+                    data-parent="#accordion2">
+                    <div class="card-body">
+                      Użytkownik otrzymuje komunikat, którego potwierdzenie kończy działanie programu. Z kolei jego
+                      odrzucenie sprawia, że program działa dalej (wraca do stanu Idle).
+                    </div>
+                  </div>
+                </div>
+              </div>
+              Wszystkie z wymienionych danych wejściowych są dokładnie opisane w dalszej części dokumentacji poświęconej
+              poszczególnym stanom wartości enumerycznych w pliku Main.vi. Dodatkowo w Main znajduje się linia błędów umożliwiająca szybkie rozpoznanie przyczyny ewentualnego braku odpowiedzi programu np. błąd połączenia z urządzeniem.
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+        <div class="card">
+          <div class="card-header" id="headingTwo">
+            <h5 class="mb-0">
+              <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo"
+                aria-expanded="false" aria-controls="collapseTwo">
+                Biblioteka Open_device_2017
+              </button>
+            </h5>
+          </div>
+          <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+            <div class="card-body">
+              Biblioteka znajdująca się w pliku Open_device_2017.llb zawiera gotowe VI umożliwiające między innymi wybór urządzenia korzystając z listy zawierającej wszystkiego dostępne urządzenia na stanowiskach po ich nazwie symbolicznej. Ułatwia nam to pracę, gdyż nie musimy używać ani znać adresów TCP/IP każdego z urządzeń. Dodatkowo biblioteka posiada VI umożliwiające otwieranie danej ilości urządzeń (od 1 do 4) oraz zakończenie pracy wszystkich używanych urządzeń. Ponadto zawiera inne gotowe VI, które nie zostały zastosowane w tym projekcie, ale mogą być użyteczne w przypadku innych między innymi BinHex.vi.
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header" id="headingThree">
+            <h5 class="mb-0">
+              <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree"
+                aria-expanded="false" aria-controls="collapseThree">
+                Stany
+              </button>
+            </h5>
+          </div>
+          <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+            <div class="card-body">
+              Plik Stany.ctl zawiera Type Definition zmiennej enumerycznej odpowiadającej za konkretne stany użyte w
+              programie Main.vi, który z kolei jest oparty o wzorzec projektowy maszyny stanów. Zmienna Enum może
+              przyjmować następujące wartości:
+              <center><div class="container h-100 d-flex justify-content-center text-center" style="margin: 10px 0px;">
+                <ul class="list-group">
+                  <li class="list-group-item  list-group-item-primary">Inicjalizacja</li>
+                  <li class="list-group-item  list-group-item-info">Idle</li>
+                  <li class="list-group-item  list-group-item-primary">Pomiar</li>
+                  <li class="list-group-item  list-group-item-info">Zapis</li>
+                  <li class="list-group-item  list-group-item-primary">Narysuj</li>
+                </ul>
+              </div></center>
+              Wszyskie z wymienionych wartości są opisane w kolejnych punktach dokumentacji dotyczących działania
+              programu Main.vi.
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header" id="headingFour">
+            <h5 class="mb-0">
+              <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour"
+                aria-expanded="false" aria-controls="collapseFour">
+                Main - stan Inicjalizacja
+              </button>
+            </h5>
+          </div>
+          <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+            <div class="card-body">
+              Przed rozpoczęciem tego stanu łączymy się wykorzystując VI 2open.vi z biblioteki Open_device_2017 z dwoma urządzeniami a mianowicie generatorem funkcyjnym HP33120A (nazwa symboliczna S3_hp_gen) oraz programowalnym multimetrem HP34401A (nazwa symboliczna S3_hp_dvm2). W przypadku braku odpowiedzi od urządzeń przez 15 sekund, otrzymamy komunikat o błędzie połączenia z urządzeniem. W przeciwnym wypadku program działa dalej przechodząc do stanu Inicjalizacja. Wartość enumeryczna stanu Inicjalizacja w programie Main.vi odpowiada za przygotowanie całości aplikacji do
+              działania. W tym miejscu są przywracane do ustawień defaultowych wszystkie parametry wejściowe i dane
+              wyjściowe (skalary, tabela) a także czyszczone są wykresy. Dodatkowo po wykonaniu operacji wartość enumeryczna zmienia się na Idle (przechodzi do stanu Idle). Ponadto poza pętlą związaną ze stanami tworzona jest zmienna Gęstość-1 (zdekrementowana wartość zmiennej Gęstość) wykorzystywana dalej w jedej z pętli projektu, cały czas (z pozycji każdego stanu) mamy dostęp do Case Selectora obsługującego przycisk Zatrzymaj (zakończenie lub kontynuacja pracy programu w zależności od reakcji użytkownika na komunikat) oraz stale wykorzystujemy linie błędów. 
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header" id="headingFive">
+            <h5 class="mb-0">
+              <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFive"
+                aria-expanded="false" aria-controls="collapseFive">
+                Main - stan Idle
+              </button>
+            </h5>
+          </div>
+          <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
+            <div class="card-body">
+              Wartość enumeryczna stanu Idle (stan ten jest stanem Default) w programie Main.vi odpowiada za obsługe przycisków Pomiar, Narysuj i Zapisz. Struktura Event na podstawie zmiany wartości konkretnego przycisku przechodzi do opowiadającego mu stanu zmieniając wartość enumeryczną i wysyłając ją na rejestr przesuwny pętli While. Dodatkowo stan ten a dokładniej reakcja na Value Change przycisku Pomiar odpowiada przechowywanie Tabeli danych pomiarowych i za stworzenie Tablicy częstotliwości. Przechowuje ona maksymalnie 1000 wartości, jej pierwszym elementem (indeks 0) jest częstotliwość początowa, ostatnim natomiast - częstotliwość końcowa. Elementy pośrednie występują w równej odległości od siebie. Dodatkowo sprawdzany jest warunek czy częstotliwość początkowa jest większa lub równa częstotliwości końcowej. Jeśli tak to użytkownik otrzymuje komunikat o błędnie wprowadzonych danych a program przechodzi znowu do stanu Idle, jeśli nie - program przechodzi do stanu Pomiar. Ponadto w strukturze Event dostępny jest Timeout o wartości 100ms, który przechodzi do stanu Idle po tym czasie. 
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header" id="headingSix">
+            <h5 class="mb-0">
+              <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseSix"
+                aria-expanded="false" aria-controls="collapseSix">
+                Main - stan Pomiar
+              </button>
+            </h5>
+          </div>
+          <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordion">
+            <div class="card-body">
+              Wartość enumeryczna stanu Pomiar w programie Main.vi odpowiada za pomiar pewnej ilości punktów (zależnej od zmiennej Gęstość) w zależności od parametrów podanych przez użytkownika. Na początku używamy Unbundle, aby uzyskać dostęp do poszczególnych urządzeń z osobna i za pomocą Format Into String ustawiamy częstotliwość początkową, amplitudę (podane przez użytkownika) i zerowy offset na generatorze HP33120A stosując obiekt VISA Write. Następnie w dane wyjściowe przesyłamy do pętli FOR, gdzie na generatorze zmieniamy częstotliwość manipulując kolejnymi elementami Tablicy częstotliwości (pierwsza ramka Flat Sequence). W drugiej ramce ustawiamy funkcje pomiarową DB na multimetrze HP34401A oraz dokonujemy odczytu z urządzenia funkcją READ? i elementem VISA Read, z którego dane pobieramy funkcją Scan from String (dodatkowo tworzymy pomocniczą tablice Tablica transmitacji przydatną do tworzenia wykresu). Otrzymane dane zarówno z multimetru jak i z Tablicy częstotliwości zamieniamy z String na Double i tworzymy nową tablicę, którą umieszczamy w wcześniej utworzonej tablicy dwuwymiarowej typu String. Dzięki temu otrzymujemy Tabele danych pomiarowych a dzięki opóźnieniu 500ms kolejne rekordy są dopisywane do tabeli w odstępie czasowym. Dodatkowo w trakcie działania pętli przyciski Pomiar i Zapis zostają wyłączone a po zakończeniu działania pętli znowu są odblokowane. Po wykonaniu operacji wartość enumeryczna zmienia się na Idle (powrót do stanu Idle).
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header" id="headingSeven">
+            <h5 class="mb-0">
+              <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseSeven"
+                aria-expanded="false" aria-controls="collapseSeven">
+                Main - stan Zapis
+              </button>
+            </h5>
+          </div>
+          <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#accordion">
+            <div class="card-body">
+              Wartość enumeryczna stanu Zapis w programie Main.vi odpowiada za zapis danych pomiarowych z poszczególnych tablic do pliku o rozszerzeniu .xlsx (Microsoft Excel). Na początku tworzona jest podtablica na podstawie Tablicy częstotliwości i o rozmiarze takim jak wartość zmiennej Gęstość. Stworzona tablica staje się sygnałem wejściowym obiektu Set Dynamic Data Attributes, z kolei nazwą sygnału (nagłówek kolumny nr 1) jest Częstotliwość [Hz]. Do drugiego obiektu Set Dynamic Data Attributes jako wejście sygnałowe dociera Tablica transmitancji o nazwie sygnału Transmitancja [dB]. Wyjścia sygnałowe z obu obiektów Set Dynamic Data Attributes docierają do sygnału wejściowego obiektu Write To Measurement File skonfigurowanego do zapisu do formatu .xlsx (nazwe pliku i miejsce docelowe zapisu wybiera użytkownik z menu systemu operacyjnego). Dodatkowo przycisk Zapis zostaje przywrócony do wartości domyślnej (przycisk znów ma wygląd jakby nie został kliknięty) a po wykonaniu operacji wartość enumeryczna zmienia się na Idle (powrót do stanu Idle).
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header" id="headingEight">
+            <h5 class="mb-0">
+              <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseEight"
+                aria-expanded="false" aria-controls="collapseEight">
+                Main - stan Narysuj
+              </button>
+            </h5>
+          </div>
+          <div id="collapseEight" class="collapse" aria-labelledby="headingEight" data-parent="#accordion">
+            <div class="card-body">
+              Wartość enumeryczna stanu Narysuj w programie Main.vi odpowiada za rysowanie wykresu typu XY Graph charakterystyki częstotliwościowej czwórnika (zależność transmitancji wyrażonej w dB od częstotliwości - w Hz). Na samym początku w Flat Sequence ustawiamy wartość minimalną osi X na częstotliwość początkową a wartość maksymalną na częstotliwość końcową. Następnie używamy Bundle, aby stworzyć Cluster zbudowany z Tablicy częstotliwości i Tablicy transmitacji. Utworzony Cluster przekazujemy na wejście XY Graphu i po zmianie tytułu wykresu i osi otrzymujemy wykres charakterystyki częstotliwościowej. Dodatkowo dostępna jest tutaj obsługa rodzaju rozłożenia w zależności od wartości przełącznika Rozłożenie. Jeśli ma on wartość False to ustawiamy MapMode skali X i Y na 0, czyli skalę liniową, dla wartości True - 1, czyli skala logarytmiczna. Po wykonaniu operacji wartość enumeryczna zmienia się na Idle (powrót do stanu Idle).
+          </div>
+        </div>
+        </div>
+        <div class="card">
+          <div class="card-header" id="headingNine">
+            <h5 class="mb-0">
+              <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseNine"
+                aria-expanded="false" aria-controls="collapseNine">
+                Podsumowanie
+              </button>
+            </h5>
+          </div>
+          <div id="collapseNine" class="collapse" aria-labelledby="headingNine" data-parent="#accordion">
+            <div class="card-body">
+              Tworzenie projektu nie obyło się bez trudności, które pomogły rozwiązać zasoby Internetu oraz Help znajdujący się w LabView. Ostatecznie wszystko działa tak jak zaplanowałem.
+              <div id="accordion4" style="text-align: justify; margin-top: 10px;">
+                <div class="card">
+                  <div class="card-header" id="headingNine-One">
+                    <h5 class="mb-0">
+                      <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseNine-One"
+                        aria-expanded="false" aria-controls="collapseOne-One">
+                        Bibliografia
+                      </button>
+                    </h5>
+                  </div>
+                  <div id="collapseNine-One" class="collapse" aria-labelledby="headingNine-One" data-parent="#accordion4">
+                    <div class="card-body">
+                        <b>Materiały dr Kasprzaka</b>, <a target="_blank" href="http://www.kmeif.pwr.wroc.pl/elektron/interfejsy/interface.html">http://www.kmeif.pwr.wroc.pl/elektron/interfejsy/interface.html</a> (dostęp 09.06.2019 r.).<br>
+                    </div>
+                  </div>
+                </div>
+                <div id="accordion4" style="text-align: justify;">
+                  <div class="card">
+                    <div class="card-header" id="headingNine-Two">
+                      <h5 class="mb-0">
+                        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseNine-Two"
+                          aria-expanded="false" aria-controls="collapseNine-Two">
+                          Spis urządzeń pomiarowych
+                        </button>
+                      </h5>
+                    </div>
+                    <div id="collapseNine-Two" class="collapse" aria-labelledby="headingNine-Two" data-parent="#accordion4">
+                      <div class="card-body">
+                          <center><div class="container h-100 d-flex justify-content-center text-center" style="margin: 10px 0px;">
+                              <ul class="list-group">
+                                <li class="list-group-item  list-group-item-primary">Programowany generator funkcji HP33120A<br><a target="_blank" href="http://www.kmeif.pwr.wroc.pl/elektron/interfejsy/lab/hp33120.htm"><b>Dokumentacja</b></a></li>
+                                <li class="list-group-item  list-group-item-info">Programowany multimetr HP34401A<br><a target="_blank" href="http://www.kmeif.pwr.wroc.pl/elektron/interfejsy/lab/hp34401.htm"><b>Dokumentacja</b></a></li>
+                              </ul>
+                            </div></center>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+            </div>
+          </div>
+        </div>
+  </div>
+</body>
+</html>
