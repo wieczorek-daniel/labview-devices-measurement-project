@@ -7,4 +7,4 @@ Repository contains files and documentation (PL) of LabVIEW project based on con
   <li>HP 34401A Programmable Digital Multimeter.</li>
 </ul>
 
-Link to documentation: https://wieczorek-daniel.github.io/labview-devices-measurement-project/
+Link to documentation: https://wieczorek-daniel.github.io/labview-measuring-devices-project/
