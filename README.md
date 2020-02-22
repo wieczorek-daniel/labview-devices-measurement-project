@@ -11,6 +11,11 @@ Run a project file (Main.vi) in LabView.
   <li>HP 34401A Programmable Digital Multimeter.</li>
 </ul>
 
+## Preview (PL)
+<p align="center">
+  <img src="readme-image.png">
+</p>
+
 ## Documentation (PL)
 https://wieczorek-daniel.github.io/labview-measuring-devices-project/
 
